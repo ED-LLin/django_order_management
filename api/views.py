@@ -7,7 +7,19 @@ from functools import wraps
 from django.db import transaction
 from django.shortcuts import render
 
+ACCEPTED_TOKEN = 'test_token'
+
+def token_required(view_func):
+    @wraps(view_func)
+    def _wrapped_view(request, *args, **kwargs):
+        auth_header = request.headers.get('Authorization')
+        if auth_header != ACCEPTED_TOKEN:
+            return Response({"error": "Invalid token"}, status=401)
+        return view_func(request, *args, **kwargs)
+    return _wrapped_view
+
 @api_view(['POST'])
+@token_required
 @transaction.atomic 
 def import_order(request):
     # Parse data
