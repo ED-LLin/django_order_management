@@ -1,6 +1,7 @@
-# django_order_management
+# Django Order Management
 
 ## Technologies Used
+[![Skills and Tools](https://skillicons.dev/icons?i=python,django,postgres,docker)](https://skillicons.dev)
 - **Django**: A high-level Python web framework that encourages rapid development and clean, pragmatic design.
 - **Django REST Framework**: A powerful toolkit for building Web APIs.
 - **PostgreSQL**: An open-source relational database management system that provides robust features and extensibility.
